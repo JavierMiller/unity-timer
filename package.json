@@ -1,0 +1,13 @@
+{
+  "name": "com.sparkygames.core.timer",
+  "displayName": "Sparky Games Timer",
+  "version": "1.0.0",
+  "unity": "2021.1",
+  "description": "Sparky Games Timer",
+  "dependencies": {
+  },
+  "author": {
+    "name": "Javier Miller",
+    "email": "sparkystudios@proton.me"
+  }
+}
