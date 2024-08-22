@@ -1,11 +1,10 @@
-﻿using SparkyGames.MonkeyAdventure.Common.Callbacks;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace SparkyGames.MonkeyAdventure.Timers
+namespace SparkyGames.Core.Timers
 {
     /// <summary>
     /// Timer Manager
@@ -31,7 +30,7 @@ namespace SparkyGames.MonkeyAdventure.Timers
         /// <param name="delayTime">The delay time.</param>
         /// <param name="handler">The handler.</param>
         /// <returns></returns>
-        public static Timer Start(float delayTime, IActionHandler handler) =>
+        public static Timer Start(float delayTime, Action handler) =>
             Instance.Create(delayTime, handler);
 
         /// <summary>
@@ -41,7 +40,7 @@ namespace SparkyGames.MonkeyAdventure.Timers
         public static async Task StartAsync(float delayTime)
         {
             var isFinished = false;
-            Instance.Create(delayTime, ActionHandlerFactory.Create(_=>isFinished = true));
+            Instance.Create(delayTime, new Action(() => isFinished = true));
 
             while (!isFinished)
             {
@@ -55,7 +54,7 @@ namespace SparkyGames.MonkeyAdventure.Timers
         /// <param name="delayTime">The delay time.</param>
         /// <param name="handler">The handler.</param>
         /// <returns></returns>
-        private Timer Create(float delayTime, IActionHandler handler)
+        private Timer Create(float delayTime, Action handler)
         {
             if (_timerBehaivourHook == null)
             {

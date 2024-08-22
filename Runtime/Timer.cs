@@ -1,7 +1,7 @@
-﻿using SparkyGames.MonkeyAdventure.Common.Callbacks;
+﻿using System;
 using UnityEngine;
 
-namespace SparkyGames.MonkeyAdventure.Timers
+namespace SparkyGames.Core.Timers
 {
     /// <summary>
     /// Timer
@@ -9,7 +9,7 @@ namespace SparkyGames.MonkeyAdventure.Timers
     public class Timer
     {
         private readonly float _delayTime;
-        private readonly IActionHandler _handler;
+        private readonly Action _handler;
         private float _timeDelayed = 0;
         private bool _isAlive = true;
 
@@ -18,7 +18,7 @@ namespace SparkyGames.MonkeyAdventure.Timers
         /// </summary>
         /// <param name="delayTime">The delay time.</param>
         /// <param name="handler">The handler.</param>
-        internal Timer(float delayTime, IActionHandler handler)
+        internal Timer(float delayTime, Action handler)
         {
             _delayTime = delayTime;
             _handler = handler;
@@ -33,7 +33,7 @@ namespace SparkyGames.MonkeyAdventure.Timers
             _timeDelayed += Time.deltaTime;
             if (_timeDelayed > _delayTime)
             {
-                _handler.Handler();
+                _handler?.Invoke();
                 _isAlive = false;
             }
         }
