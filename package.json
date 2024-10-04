@@ -1,10 +1,17 @@
 {
-  "name": "com.sparkygames.core.timer",
+  "name": "com.sparkygames.core.timers",
   "displayName": "Sparky Games Timer",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "unityRelease": "0a19",
   "unity": "2020.2",
   "description": "Sparky Games Timer",
+  "keywords": [
+    "2d"
+  ],
+  "category": "2D",
   "dependencies": {
+  },
+  "relatedPackages": {
   },
   "author": {
     "name": "Sparky Code Studios",
@@ -12,5 +19,7 @@
   },
   "upmCi": {
     "footprint": "bca436b37805e043886d7938b524bca81be35cc4"
+  },
+  "repository": {
   }
 }
